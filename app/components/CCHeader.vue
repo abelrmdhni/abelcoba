@@ -25,17 +25,25 @@
       </div>
 
       <!-- Center: Search Bar -->
-      <div class="flex-1 max-w-2xl hidden md:flex items-center gap-2">
+      <div class="flex-1 max-w-2xl hidden md:block">
         <UInput
           icon="i-lucide-sliders-horizontal"
           :placeholder="searchPlaceholder"
           size="lg"
-          class="flex-1"
-        />
-        <UButton color="neutral" variant="solid" size="lg" class="bg-slate-900 hover:bg-slate-800">
-          <UIcon name="i-lucide-search" class="mr-1" />
-          Cari
-        </UButton>
+          class="w-full"
+          :ui="{ rounded: 'rounded-full' }"
+        >
+          <template #trailing>
+            <UButton
+              color="gray"
+              variant="ghost"
+              icon="i-lucide-search"
+              :padded="false"
+              class="pointer-events-auto"
+              aria-label="Search"
+            />
+          </template>
+        </UInput>
       </div>
 
       <!-- Right: Action Icons -->
@@ -48,17 +56,25 @@
     </UContainer>
     
     <!-- Mobile Search Bar (Visible only on small screens) -->
-    <UContainer class="mt-4 md:hidden flex items-center gap-2">
+    <UContainer class="mt-4 md:hidden">
       <UInput
         icon="i-lucide-sliders-horizontal"
         :placeholder="searchPlaceholder"
         size="lg"
-        class="flex-1"
-      />
-      <UButton color="neutral" variant="solid" size="lg" class="bg-slate-900 hover:bg-slate-800">
-        <UIcon name="i-lucide-search" class="mr-1" />
-        Cari
-      </UButton>
+        class="w-full"
+        :ui="{ rounded: 'rounded-full' }"
+      >
+        <template #trailing>
+          <UButton
+            color="gray"
+            variant="ghost"
+            icon="i-lucide-search"
+            :padded="false"
+            class="pointer-events-auto"
+            aria-label="Search"
+          />
+        </template>
+      </UInput>
     </UContainer>
   </div>
 </template>

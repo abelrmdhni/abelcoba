@@ -25,9 +25,9 @@
 <script setup lang="ts">
 const services = [
   { title: 'Desain Logo', to: '/desain-logo' },
-  { title: 'Desain Kemasan', to: '#' },
-  { title: 'Maskot', to: '#' },
-  { title: 'Banner', to: '#' },
-  { title: 'Website Gratis', to: '#' }
+  { title: 'Desain Kemasan', to: '/kemasan.png' },
+  { title: 'Maskot', to: '/maskot.png' },
+  { title: 'Banner', to: '/banner.png' },
+  { title: 'Website Gratis', to: '/website.png' }
 ]
 </script>

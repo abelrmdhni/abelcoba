@@ -16,7 +16,7 @@
         :items="services"
         :ui="{ item: 'basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/5 pe-4' }"
       >
-        <ServiceCard :title="item.title" />
+        <ServiceCard :title="item.title" :to="item.to" />
       </UCarousel>
     </UContainer>
   </section>
@@ -24,10 +24,10 @@
 
 <script setup lang="ts">
 const services = [
-  { title: 'Desain Logo' },
-  { title: 'Desain Kemasan' },
-  { title: 'Maskot' },
-  { title: 'Banner' },
-  { title: 'Website Gratis' }
+  { title: 'Desain Logo', to: '/desain-logo' },
+  { title: 'Desain Kemasan', to: '#' },
+  { title: 'Maskot', to: '#' },
+  { title: 'Banner', to: '#' },
+  { title: 'Website Gratis', to: '#' }
 ]
 </script>

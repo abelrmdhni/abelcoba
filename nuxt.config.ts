@@ -15,5 +15,8 @@ export default defineNuxtConfig({
     defaults: {
       weights: [400]
     }
+  },
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' }
   }
 })

@@ -1,74 +1,82 @@
 <template>
-  <div class="bg-white rounded-2xl border border-gray-200 p-4 flex gap-4">
-    <!-- Profile Photo -->
+  <div class="bg-white rounded-2xl border border-gray-200 p-6 flex gap-5 shadow-sm hover:shadow-md transition-shadow duration-200">
+    <!-- Photo (Left) -->
     <div class="flex-shrink-0">
       <img 
         :src="photo" 
         :alt="name"
-        class="w-24 h-28 object-cover rounded-xl"
+        class="w-[100px] h-[100px] object-cover rounded-xl bg-gray-100"
       />
     </div>
 
-    <!-- Content -->
-    <div class="flex-1 flex flex-col">
-      <!-- Name -->
-      <h3 class="text-xl font-bold text-slate-900">{{ name }}</h3>
-
-      <!-- Expertise Badges -->
-      <div class="flex flex-wrap gap-1.5 mt-2">
-        <span 
-          v-for="(expertise, index) in expertises" 
-          :key="index"
-          class="inline-flex items-center gap-1 px-2 py-0.5 bg-gray-100 rounded-full text-xs text-slate-700"
-        >
-          <span>{{ expertise.icon }}</span>
-          <span>{{ expertise.label }}</span>
-        </span>
-      </div>
-
-      <!-- Age & Location -->
-      <p class="text-sm text-slate-500 mt-2">
-        {{ age }} Tahun &bull; {{ location }}
-      </p>
-
-      <!-- Description -->
-      <p class="text-sm text-slate-600 mt-2 line-clamp-2">
-        {{ description }}
-      </p>
-
-      <!-- Bottom Row: Rating, Price, Buttons -->
-      <div class="flex items-center justify-between mt-auto pt-3">
-        <!-- Rating & Price -->
-        <div class="flex items-center gap-4">
-          <div class="flex items-center gap-1">
-            <UIcon name="i-lucide-star" class="text-amber-400 text-sm" />
-            <span class="text-sm font-semibold text-slate-900">{{ rating }}</span>
+    <!-- Content Area (Middle & Right) -->
+    <div class="flex-1 flex flex-col min-w-0">
+      <!-- Header Section: Name/Info & Rating/Price -->
+      <div class="flex justify-between items-start gap-4">
+        <!-- Middle: Name, Badges, Age/Loc -->
+        <div class="flex-1 min-w-0">
+          <h3 class="text-xl font-bold text-slate-900 truncate">{{ name }}</h3>
+          
+          <!-- Expertise Badges -->
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span 
+              v-for="(expertise, index) in expertises" 
+              :key="index"
+              class="inline-flex items-center gap-1.5 px-3 py-1 bg-gray-100 rounded-full text-xs font-medium text-slate-700"
+            >
+              <span class="text-base">{{ expertise.icon }}</span>
+              <span>{{ expertise.label }}</span>
+            </span>
           </div>
-          <div class="flex items-center gap-1">
-            <UIcon name="i-lucide-tag" class="text-slate-400 text-sm" />
+
+          <!-- Age & Location -->
+          <div class="flex items-center gap-4 mt-2 text-sm text-slate-500">
+            <div class="flex items-center gap-1.5">
+              <UIcon name="i-lucide-user" class="w-4 h-4 text-slate-400" />
+              <span>{{ age }} Tahun</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <UIcon name="i-lucide-map-pin" class="w-4 h-4 text-slate-400" />
+              <span>{{ location }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Rating & Price -->
+        <div class="flex flex-col items-end gap-1 flex-shrink-0">
+          <div class="flex items-center gap-1.5">
+            <UIcon name="i-lucide-star" class="w-4 h-4 text-amber-400 fill-amber-400" />
+            <span class="text-sm font-bold text-slate-900">{{ rating }}</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <UIcon name="i-lucide-tag" class="w-4 h-4 text-slate-400" />
             <span class="text-sm font-semibold text-slate-900">{{ formattedPrice }}</span>
           </div>
         </div>
+      </div>
 
-        <!-- Action Buttons -->
-        <div class="flex items-center gap-2">
-          <UButton 
-            color="amber" 
-            variant="solid" 
-            size="sm"
-            class="bg-amber-400 hover:bg-amber-500 text-slate-900"
-          >
-            Kirim Pesan
-          </UButton>
-          <UButton 
-            color="neutral" 
-            variant="outline" 
-            size="sm"
-            class="border-slate-300 text-slate-700"
-          >
-            Lihat Profil
-          </UButton>
-        </div>
+      <!-- Description -->
+      <p class="text-sm text-slate-600 mt-4 line-clamp-2 leading-relaxed">
+        {{ description }}
+      </p>
+
+      <!-- Buttons (Bottom Right) -->
+      <div class="flex items-center justify-end gap-3 mt-auto pt-4">
+        <UButton 
+          variant="outline" 
+          size="sm"
+          class="rounded-full border-slate-300 text-slate-700 hover:bg-slate-50 px-4"
+        >
+          Lihat Profil
+        </UButton>
+        <UButton 
+          color="blue" 
+          variant="solid" 
+          size="sm"
+          class="rounded-full bg-blue-500 hover:bg-blue-600 text-white px-5"
+        >
+          Kirim Pesan
+        </UButton>
       </div>
     </div>
   </div>

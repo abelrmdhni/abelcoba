@@ -11,7 +11,7 @@
 
         <!-- Mentor Grid -->
         <div class="flex-1">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div class="flex flex-col gap-4">
             <MentorCard
               v-for="mentor in filteredMentors"
               :key="mentor.id"
